@@ -1,0 +1,174 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block herotitle %} Armador de equipos {% endblock %}
+{% block herosubtitle %} {% endblock %}
+{% block contenttitle %} {% endblock %}
+{% block contentsubtitle %} {% endblock %}
+
+{% block content %}
+
+{% from "_macro.html" import render_field %}  
+
+<div>
+    <!-- Mensaje -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="alert alert-success alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <!-- END Mensaje -->
+</div>
+
+<div class="block block-rounded">
+    <div class="block-content block-content-full">
+        <form name="sentMessage" id="matchForm" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <!-- Steps Content -->
+            <div class="form-group">
+                <div class="form-row">
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player01, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player02, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player03, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player04, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player05, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player06, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player07, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player08, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player09, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player10, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player11, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player12, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player13, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player14, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player15, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player16, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player17, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player18, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player19, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player20, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player21, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player22, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player23, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player24, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player25, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player26, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player27, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player28, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player29, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player30, class='form-control') }}
+                        </div>
+                </div>
+            </div>
+            <div id="success" class="form-group row justify-content-center mb-0">
+                <div class="col-md-6 col-xl-5">
+                    <button type="submit" class="btn btn-block btn-primary">
+                        <i class="fa fa-fw fa-user-check mr-1"></i> Enviar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+        <!-- END Steps Content -->
+    
+    <!-- END Form -->
+
+{% endblock %}

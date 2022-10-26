@@ -1,0 +1,293 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block herotitle %} Cargador de partidos {% endblock %}
+{% block herosubtitle %} {% endblock %}
+{% block contenttitle %} {% endblock %}
+{% block contentsubtitle %} {% endblock %}
+
+{% block content %}
+
+{% from "_macro.html" import render_field %}  
+
+<div>
+    <!-- Mensaje -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <p class="mb-0">{{ message }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <!-- END Mensaje -->
+</div>
+
+<div class="block block-rounded">
+    <div class="block-content block-content-full">
+        <form name="sentMessage" id="matchForm" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+            <!-- Steps Content -->
+            <div class="form-group">
+                <div class="form-row">
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player01, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score01, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player02, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score02, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player03, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score03, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player04, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score04, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player05, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score05, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player06, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score06, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player07, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score07, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player08, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score08, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player09, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score09, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player10, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score10, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player11, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score11, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player12, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score12, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player13, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score13, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player14, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score14, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player15, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score15, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player16, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score16, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player17, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score17, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player18, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score18, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player19, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score19, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player20, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score20, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player21, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score21, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player22, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score22, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player23, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score23, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player24, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score24, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player25, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score25, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player26, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score26, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player27, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score27, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player28, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score28, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player29, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score29, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 offset-md-3 font-size-sm">
+                            <label>Nombre del Jugador:</label>
+                            {{ render_field(form.player30, class='form-control') }}
+                        </div>
+                        <div class="form-group col-md-3 font-size-sm">
+                            <label>Score del Jugador:</label>
+                            {{ render_field(form.score30, class='form-control') }}
+                        </div>
+                </div>
+            </div>
+            <div id="success" class="form-group row justify-content-center mb-0">
+                <div class="col-md-6 col-xl-5">
+                    <button type="submit" class="btn btn-block btn-primary">
+                        <i class="fa fa-fw fa-user-check mr-1"></i> Enviar
+                    </button>
+                </div>
+            </div>
+            <!-- END Steps Content -->
+        </form>
+    </div>
+    <!-- END Form -->
+</div>
+
+{% endblock %}
