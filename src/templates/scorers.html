@@ -34,20 +34,20 @@
                     <thead>
                         <tr>
                             <th>Nombres</th>
-                            <th style="width: 15%;">Promedio de victorias</th>
-                            <th style="width: 15%;">Presente</th>
+                            <th style="width: 15%;">Goles</th>
+                            <th style="width: 15%;">Goles por partidos</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for jugadores in jugadores %}
                         <tr>
                             <td class="font-w600 font-size-sm">{{jugadores.1}}</td>
+                            <td class="font-w600 font-size-sm">{{jugadores.4}}</td>
                             {% if jugadores.3==0 %}
-                            <td class="font-w600 font-size-sm">0%</td>
+                            <td class="font-w600 font-size-sm">0 goles por partido</td>
                             {% else %}
-                            <td class="font-w600 font-size-sm">{{((jugadores.2/jugadores.3*100)-100)|round|int}}%</td>
+                            <td class="font-w600 font-size-sm">{{(jugadores.4/jugadores.3)|round(1)}}</td>
                             {% endif %}
-                            <td class="font-w600 font-size-sm">{{jugadores.3}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

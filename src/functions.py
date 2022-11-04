@@ -5,8 +5,6 @@ import os
 from datetime import datetime
 import math
 from flask import *
-from gekko import GEKKO
-import numpy as np
 
 ### FUNCIÓN QUE AGREGA LOS PERFILES ###
 
@@ -19,7 +17,7 @@ def creadordeperfil(perfil):
     except sqlite3.OperationalError:
         pass
     try:
-        cursor.execute("INSERT INTO JUGADORES (NOMBRE, PUNTOS, PRESENTE) VALUES(?, ?, ?)", perfil)
+        cursor.execute("INSERT INTO JUGADORES (NOMBRE, PUNTOS, PRESENTE, GOLES) VALUES(?, ?, ?, ?)", perfil)
         basededatos.commit()
         nameuser = perfil[0]
         success_message = 'El usuario {} ha sido creado.'.format(nameuser)
@@ -62,13 +60,14 @@ def match(match):
     lista=list(match.data.values())
     basededatos=sqlite3.connect('src/Basededatos')
     cursor=basededatos.cursor()
-    for i in range(0,60,2):
+    for i in range(0,60,3):
         if lista[i]!="":
             cursor.execute("SELECT * FROM JUGADORES WHERE NOMBRE=?", [lista[i]])
             datos=cursor.fetchall()[0]
             puntos=datos[2]+lista[i+1]
             presente=datos[3]+1
-            cursor.execute("UPDATE JUGADORES SET PUNTOS=?, PRESENTE=? WHERE NOMBRE=?", (puntos, presente, datos[1]))
+            goles=datos[4]+lista[i+2]
+            cursor.execute("UPDATE JUGADORES SET PUNTOS=?, PRESENTE=?, GOLES=? WHERE NOMBRE=?", (puntos, presente, goles, datos[1]))
         else:
             pass
         pass
@@ -86,7 +85,10 @@ def team(team):
             jugadores.append(lista[i])
             cursor.execute("SELECT * FROM JUGADORES WHERE NOMBRE=?", [lista[i]])
             datos=cursor.fetchall()[0]
-            p=datos[2]/datos[3]
+            try:
+                p=datos[2]/datos[3]
+            except:
+                p=0
             promedios.append(p)
             presente.append(datos[3])
         else:
@@ -142,29 +144,29 @@ def team(team):
         teamA, teamB, teamC = reparte3(promedios)
         ordn=ordenar(teamA[0])[1]
         jugadoresquipo=ordenar(teamA[0])[0]
-        flash("\nFuerza equipo A: "+str(teamA[1]) + " número de jugadores: " + str(len(teamA[0])),"block-title mb-0")
+        flash("\nFuerza equipo A: "+str(round(teamA[1])) + " número de jugadores: " + str(len(teamA[0])),"block-title mb-0")
         for i in ordn:
             flash("· " + str(jugadoresquipo[i[1]]), "mb-0 font-w500")
         ordn=ordenar(teamB[0])[1]
         jugadoresquipo=ordenar(teamB[0])[0]
-        flash("\nFuerza equipo B: "+str(teamB[1]) + " número de jugadores: " + str(len(teamB[0])),"block-title mb-0")
+        flash("\nFuerza equipo B: "+str(round(teamB[1])) + " número de jugadores: " + str(len(teamB[0])),"block-title mb-0")
         for i in ordn:
             flash("· " + str(jugadoresquipo[i[1]]), "mb-0 font-w500")
         ordn=ordenar(teamC[0])[1]
         jugadoresquipo=ordenar(teamC[0])[0]
-        flash("\nFuerza equipo C: "+str(teamC[1]) + " número de jugadores: " + str(len(teamC[0])),"block-title mb-0")
+        flash("\nFuerza equipo C: "+str(round(teamC[1])) + " número de jugadores: " + str(len(teamC[0])),"block-title mb-0")
         for i in ordn:
             flash("· " + str(jugadoresquipo[i[1]]), "mb-0 font-w500")
     else:
         teamA, teamB = reparte2(promedios)
         ordn=ordenar(teamA[0])[1]
         jugadoresquipo=ordenar(teamA[0])[0]
-        flash("\nFuerza equipo A: "+str(teamA[1]) + " número de jugadores: " + str(len(teamA[0])),"block-title mb-0")
+        flash("\nFuerza equipo A: "+str(round(teamA[1])) + " número de jugadores: " + str(len(teamA[0])),"block-title mb-0")
         for i in ordn:
             flash("· " + str(jugadoresquipo[i[1]]), "mb-0 font-w500")
         ordn=ordenar(teamB[0])[1]
         jugadoresquipo=ordenar(teamB[0])[0]
-        flash("\nFuerza equipo B: "+str(teamB[1]) + " número de jugadores: " + str(len(teamA[0])),"block-title mb-0")
+        flash("\nFuerza equipo B: "+str(round(teamB[1])) + " número de jugadores: " + str(len(teamA[0])),"block-title mb-0")
         for i in ordn:
             flash("· " + str(jugadoresquipo[i[1]]), "mb-0 font-w500")
     

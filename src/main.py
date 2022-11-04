@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, make_response, session, redirect, url_for, flash, jsonify
 from flask_wtf import CSRFProtect
 import sqlite3
-from gekko import GEKKO
 
 import forms
 import functions
@@ -41,7 +40,15 @@ def ranking():
     cursor = basededatos.cursor()
     cursor.execute('SELECT * FROM JUGADORES')
     jugadoresdata= cursor.fetchall()
-    return render_template('ranking.html', jugadores=jugadoresdata, title='ranking')  
+    return render_template('ranking.html', jugadores=jugadoresdata, title='Ranking')  
+
+@app.route('/scorers')
+def scorers():
+    basededatos = sqlite3.connect('src/Basededatos')
+    cursor = basededatos.cursor()
+    cursor.execute('SELECT * FROM JUGADORES')
+    jugadoresdata= cursor.fetchall()
+    return render_template('scorers.html', jugadores=jugadoresdata, title='Goleadores')  
 
 ### FUNCIÓN PARA CREAR JUGADORES ###
 
@@ -49,7 +56,7 @@ def ranking():
 def create():
     create_form = forms.CreateForm(request.form)
     if request.method == 'POST' and create_form.validate():
-        perfil = (create_form.nameuser.data, 0, 0)
+        perfil = (create_form.nameuser.data, 0, 0, 0)
         functions.creadordeperfil(perfil)
     return render_template('create.html', title='Crear jugador', form=create_form)
 
@@ -61,7 +68,6 @@ def editperfilest(ID):
     cursor = basededatos.cursor()
     cursor.execute('SELECT * FROM JUGADORES WHERE ID=?', [ID])
     defaultvalue=cursor.fetchall()[0][1]
-    print(defaultvalue)
     create_form = forms.CreateForm(request.form)
     if request.method == 'POST' and create_form.validate():
         datos=[create_form.nameuser.data, ID]
