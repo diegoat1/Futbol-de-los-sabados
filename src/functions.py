@@ -75,12 +75,13 @@ def match(match):
 
 def team(team):
     lista=list(team.data.values())
+    print(lista)
     basededatos=sqlite3.connect('src/Basededatos')
     cursor=basededatos.cursor()
     jugadores=[]
     promedios=[]
     presente=[]
-    for i in range(0,60,2):
+    for i in range(0,60,3):
         if lista[i]!="":
             jugadores.append(lista[i])
             cursor.execute("SELECT * FROM JUGADORES WHERE NOMBRE=?", [lista[i]])
