@@ -89,7 +89,7 @@ def team(team):
             try:
                 p=datos[2]/datos[3]
             except:
-                p=0
+                p=1
             promedios.append(p)
             presente.append(datos[3])
         else:
